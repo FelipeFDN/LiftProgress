@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self' https://api.jsonbin.io; manifest-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Cargas">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<title>Cargas</title>
+<script src="app.js" defer></script>
+</head>
+<body>
+<div id="lock">
+  <h1>🏋️ Cargas</h1>
+  <p id="lp" class="mut"></p>
+  <form id="lf">
+    <input id="p1" type="password" placeholder="Senha" required>
+    <input id="p2" type="password" placeholder="Repita a senha" autocomplete="new-password">
+    <button id="lb">Entrar</button>
+  </form>
+  <p id="lm" class="mut"></p>
+</div>
+
+<div id="app" class="hide">
+<header><b>🏋️ Cargas</b><span><button id="bcfg" aria-label="Ajustes">⚙️</button><button id="block" aria-label="Bloquear">🔒</button></span></header>
+<main>
+  <section id="v-treinar">
+    <div id="gwrap"><h2>Qual grupo hoje?</h2><div id="grid" class="grid"></div></div>
+    <div id="gview" class="hide">
+      <div class="top"><button id="gback" class="x">← Voltar</button><h2 id="gt"></h2></div>
+      <div id="sug"></div>
+      <div id="pick" class="card hide">
+        <h3 id="pn"></h3><div id="hint" class="hint"></div>
+        <div class="step"><button id="m" class="s">−</button><input id="w" type="number" inputmode="decimal" step="0.5" min="0" aria-label="Carga em kg"><button id="pl" class="s">+</button></div>
+        <button id="bsv">Salvar carga</button>
+      </div>
+    </div>
+  </section>
+  <section id="v-cad" class="hide">
+    <h2>Cadastrar</h2>
+    <div class="card"><input id="nn" placeholder="Novo exercício (ex: Supino)" autocomplete="off"><select id="nc"></select><button id="add">Adicionar exercício</button></div>
+    <div id="list"></div>
+  </section>
+  <section id="v-dash" class="hide">
+    <h2>Dashboard</h2>
+    <div class="card"><h3 class="pu">Treinos por grupo</h3><div id="bars"></div></div>
+    <div class="card"><h3 class="pu">Progressão de carga</h3><select id="ds"></select><div id="ch"></div></div>
+  </section>
+  <section id="v-cfg" class="hide">
+    <h2>Ajustes</h2>
+    <button id="sync" class="g">Sincronizar Cargas com a Nuvem</button><p id="sm" class="mut"></p>
+    <div class="card"><h3>Nuvem (JSONBin.io)</h3>
+      <select id="ck"><option value="X-Access-Key">Access Key (recomendado)</option><option value="X-Master-Key">Master Key</option></select>
+      <input id="cs" type="password" placeholder="Chave da API" autocomplete="off">
+      <input id="cb" placeholder="Bin ID" autocomplete="off">
+      <button id="csv">Salvar configuração</button></div>
+    <div class="card"><h3>Backup cifrado (sem internet)</h3>
+      <button id="bex">Exportar backup</button>
+      <label class="btn">Importar backup<input id="im" type="file" accept=".json,application/json" class="hide"></label></div>
+  </section>
+</main>
+<nav><button data-t="treinar" class="on">Treinar</button><button data-t="cad">Cadastrar</button><button data-t="dash">Dashboard</button></nav>
+</div>
+<div id="toast"></div>
+</body>
+</html>
